@@ -10,7 +10,7 @@
 
 2. **Utwórz wirtualne środowisko:**
    ```bash
-   python -m venv venv
+   python3 -m venv venv
    source venv/bin/activate  # Na Windows: venv\Scripts\activate
    ```
 
@@ -19,17 +19,22 @@
    pip install -r requirements.txt
    ```
 
-4. **Uruchom migracje bazy danych:**
+4. **Utwórz plik .env i dodaj klucz django**
+   ```bash
+   DJANGO_SECRET_KEY='twoj-klucz'
+   ```
+
+5. **Uruchom migracje bazy danych:**
    ```bash
    python manage.py migrate
    ```
 
-5. **Utwórz superużytkownika:**
+6. **Utwórz superużytkownika:**
    ```bash
    python manage.py createsuperuser
    ```
 
-6. **Uruchom serwer deweloperski:**
+7. **Uruchom serwer deweloperski:**
    ```bash
    python manage.py runserver
    ```
@@ -37,8 +42,6 @@
 ## Użycie
 
 1. Zarejestruj nowe konto przez panel admina lub zaloguj się istniejącym
-2. Dodawaj nowe hasła przez panel administratora Django (`/admin/`)
+2. Dodawaj nowe hasła przez formularz (mozna wybrac tryb jawny i szyfrowany)
 3. Przeglądaj swoje hasła na stronie głównej
-
-## gitignore
-- **baza danych i srodowisko venv** sa w gitignore
+4. Przez panel admina (/admin) można sprawdzić czy haslo uzytkownika zostało zaszyfrowane w bazie
