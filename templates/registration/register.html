@@ -1,25 +1,22 @@
-<h2>Logowanie</h2>
+<h2>Zarejestruj się</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Zaloguj się</button>
+    <button type="submit">Załóż konto</button>
 </form>
-<a href="{% url 'register' %}">Zarejestruj się</a>
+<br>
+<a href="{% url 'login' %}">Masz już konto? Zaloguj się</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script>
 document.querySelector('form').onsubmit = function() {
-    // przechwytanie hasla
     const passwordInput = document.querySelector('input[name*="password"]');
     if (passwordInput && passwordInput.value) {
-        // sol dodawana do hasla (TRZEBA ZROBIC JESZCZE ZEBY KAZDY UZYTKOWNIK MIAL INNA)
         const salt = "stala_sol_dla_projektu"; 
-        //zamiana hasla na klucz
         const key = CryptoJS.PBKDF2(passwordInput.value, salt, {
             keySize: 256/32,
             iterations: 10000 
         }).toString();
-        // zapisanie klucza w pamieci przegladarki
         sessionStorage.setItem('user_crypto_key', key);
     }
 };

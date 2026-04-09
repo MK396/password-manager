@@ -41,7 +41,8 @@
 
 ## Użycie
 
-1. Zarejestruj nowe konto przez panel admina lub zaloguj się istniejącym
-2. Dodawaj nowe hasła przez formularz (mozna wybrac tryb jawny i szyfrowany)
-3. Przeglądaj swoje hasła na stronie głównej
+1. Załóż konto
+2. Podczas logowania JS wygeneruje unikalny klucz AES i zapisze go w sessionStorage.
+3. Dodaj haslo, zostanie przeslane do backendu juz zaszyfrowane
 4. Przez panel admina (/admin) można sprawdzić czy haslo uzytkownika zostało zaszyfrowane w bazie
+5. zamykanie karty przegladarki wymusza ponowne zalogowanie

@@ -121,6 +121,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# przeniesienie po zalogowaniu lub wylogowaniu
+LOGIN_REDIRECT_URL = 'password_list'
+LOGOUT_REDIRECT_URL = 'login'
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/accounts/login/'
+# usuniecie sesji po zamknieciu
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
+SESSION_COOKIE_HTTPONLY = True
+
+SESSION_SAVE_EVERY_REQUEST = False
