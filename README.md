@@ -1,5 +1,15 @@
 # Menedżer Haseł
 
+### Wykonane
+* **Szyfrowanie przed wysłaniem na serwer:** Szyfrowanie haseł w przeglądarce przed ich wysłaniem do bazy danych. Serwer przechowuje jedynie zaszyfrowane dane (AES-256).
+* **Klucz szyfrujący:** Klucz kryptograficznygenerowany jest za pomocą algorytmu **PBKDF2** (10,000 iteracji) bezpośrednio w procesie logowania.
+* **Bezpieczna pamięć sesji:** Klucze są przechowywane wyłącznie w `sessionStorage`, co gwarantuje, że znikają one bezpowrotnie po zamknięciu karty przeglądarki.
+
+* **Bezpieczny podgląd:** "Zobacz/Ukryj" z maskowaniem (`-webkit-text-security`), chroniącą przed podglądaniem haseł z ekranu.
+* **Auto-Logout Guard:** Mechanizm automatycznego wylogowania sesji Django w przypadku wykrycia braku klucza kryptograficznego (np. po ponownym otwarciu karty).
+
+* **Zabezpieczenie sesji:** Parametry `SESSION_EXPIRE_AT_BROWSER_CLOSE` oraz `SESSION_COOKIE_HTTPONLY`, aby zminimalizować ryzyko kradzieży sesji.
+
 ## Instalacja i uruchomienie
 
 1. **Sklonuj repozytorium:**
